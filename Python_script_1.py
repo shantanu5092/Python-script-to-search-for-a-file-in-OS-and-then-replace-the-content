@@ -8,11 +8,11 @@
 
 import os
 
-from os.path import join 		#os.path is a part of sys.modules and not the os module. However it plays some trick. Consider "os.path" as a module itself
+from os.path import join 									# os.path is a part of sys.modules and not the os module. However it plays some trick. Consider "os.path" as a module itself
 
-import re													# This will allow us to use regular expressions
+import re											# This will allow us to use regular expressions
 
-import sys													# This import statement is used to write to the file using sys.stdout statement
+import sys											# This import statement is used to write to the file using sys.stdout statement
 
 #from docx import document									# This is used when dealing with word files.
 
@@ -22,10 +22,10 @@ file_path_g = ""
 
 def find(file_name_l1):										# Note that file_name_l is coming from the user input.
 
-	global flag_g											# for using global variables in functions that modify their values you need to define them global
+	global flag_g										# for using global variables in functions that modify their values you need to define them global
 	global file_path_g
 	
-	for root, dir, files in os.walk('/Users'):				# this line yields 3 tuples, typical syntax for os.walk
+	for root, dir, files in os.walk('/Users'):						# this line yields 3 tuples, typical syntax for os.walk
 		#print "searching"
 		if file_name_l1 in files:
 			flag_g = 1
@@ -44,20 +44,20 @@ def find(file_name_l1):										# Note that file_name_l is coming from the user
 
 def edit(file_name_l2, file_path_g):
 
-	outline = []											# List declaration for storing the changed values that will be mapped to the original file later on.
+	outline = []										# List declaration for storing the changed values that will be mapped to the original file later on.
 
-	if (flag_g!=0):											# You don't want to edit the document if file does not exist
+	if (flag_g!=0):										# You don't want to edit the document if file does not exist
 		make_change_l = raw_input("Do you want to edit the document? Y/N \n")
 	
 		if(make_change_l == 'Y'):
 			os.chdir(file_path_g)
 			
-			# print os.getcwd()								# used for checking the functionality
+			# print os.getcwd()							# used for checking the functionality
 			# print file_name_l2							# used for checking the functionality
 			
-			# open_file = open(file_name_l2, 'r+')			# the file is now opened. And we will use regular expression to find or match a particular string
+			# open_file = open(file_name_l2, 'r+')					# the file is now opened. And we will use regular expression to find or match a particular string
 			
-			# document = Document(open_file)				# This is used when dealing with word files
+			# document = Document(open_file)					# This is used when dealing with word files
 			
 			# count the number of occurrences of "timing" in "sv.docx"
 			
@@ -81,9 +81,9 @@ def edit(file_name_l2, file_path_g):
 					else:
 						outline.append(abc)
 			
-			#print outline									# used for checking the functionality
-			#print count									# used for checking the functionality
-			#print count1									# used for checking the functionality
+			#print outline								# used for checking the functionality
+			#print count								# used for checking the functionality
+			#print count1								# used for checking the functionality
 						
 			orig_stdout = sys.stdout						# This is used to redirect the stdout so that it does not get buffered and print function can work properly
 			
@@ -94,7 +94,7 @@ def edit(file_name_l2, file_path_g):
 			for item in outline:
 				sys.stdout.write(item)
 				#print>>open_file, item						
-				#the_file.write("%s\n", item)				#Never use .write function for replacing the content. It will always overwrite the existing file.
+				#the_file.write("%s\n", item)					# Never use .write function for replacing the content. It will always overwrite the existing file.
 				
 			sys.stdout = orig_stdout
 			
@@ -134,7 +134,7 @@ def edit(file_name_l2, file_path_g):
 			#		count = count + 1
 
 			
-			#open_file.close()								# The files is now closed.
+			#open_file.close()							# The files is now closed.
 			
 ##################################################################################################################
 		
