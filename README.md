@@ -9,8 +9,8 @@ Step-3: If the file exists, then script asks user if he wants to locate the file
 
 Step-4: Then ask if any edits are to be made in the file. (Assuming that it is a text file and can be edited)
 
-Step-5: Ask the user about the string he wants to edit.
+Step-5: Take user input for the string he wants to edit.
 
-Step-6: Ask the user to enter the replacement of the string.
+Step-6: Take user input for the replacement of the string.
 
 Step-7: Replace the word and exit.
